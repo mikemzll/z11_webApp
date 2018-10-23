@@ -18,15 +18,20 @@ $bg-main-2: #3D818C;
 $bg-white: #fff;
 $border-color: #cecece;
 $text-color: #1d2129;
+$sub-text-color: #494a4b;
+
+$fb-color: #415598;
+$in-color: #0077B5;
+$tw-color: #039AF1;
 
 $shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.15);// 0 1.5px 3px 0 rgba(0, 0, 0, 0.15);
 $shadow-inset: inset 0 1px 1.5px 0 rgba(0,0,0,.15), 0 1px 1.5px 0 rgba(0,0,0,.15);
 					/* end Colors */
 
 					/* Sizes */
-$content-wrapper-width: 1026px;
+$content-wrapper-width: 1126px;
 $side-bar-width: 250px;
-$center-bar-width: 490px;
+$center-bar-width: 590px;
 
 $br-circle: 50%;
 $br-10: 10px;
@@ -48,6 +53,7 @@ html, body {
 	padding: 0;
 	background-color: $bg-gray;
     color: #1d2129;
+	font-family: Arial;
 }
 h1 {
 	font-family: $font-title;
@@ -55,7 +61,7 @@ h1 {
 }
 p {
 	font-family: $font-text;
-    font-size: 12px;
+    font-size: 13px;
 }
 a {
 	text-decoration: none;
@@ -188,7 +194,7 @@ header {
 }
 .text-box {
 	text-align: center;
-	padding: 2px;
+	padding: 2px 16px;
 	background-color: $bg-white;
 	//border: $border;
 	border-radius: $br-0;
@@ -310,8 +316,26 @@ header {
 	justify-content: center;
 
 	text-align: center;
+	
+	
+	i, svg {
+		margin: 3px 12px;
+		color: $bg-main-2;
+		fill: #fff;
 
-	a {
+		&.fa-facebook-square:hover {
+			color: $fb-color;
+		}
+		&.fa-linkedin:hover {
+			color: $in-color;
+		}
+		&.fa-twitter-square:hover {
+			color: $tw-color;
+		}
+	}
+
+	// alternative
+	/* a {
 		background-color: $bg-main;
 		margin: 3px 12px;
 		display: block;
@@ -326,13 +350,13 @@ header {
 			background-color: $bg-white;
 		}
 		&:hover > .fa-facebook-f {
-			color: #415598;
+			color: $fb-color;
 		}
 		&:hover > .fa-linkedin-in {
-			color: #0077B5;
+			color: $in-color;
 		}
 		&:hover > .fa-twitter {
-			color: #039AF1;
+			color: $tw-color;
 		}
 	}
 	i, svg {
@@ -346,7 +370,9 @@ header {
 	}
 	.fa-facebook-f {
 		margin: 5px -3px 0 0;
-	}
+	} */
+	// end alternative
+
 }
 // end socials-box
 
@@ -481,8 +507,9 @@ footer {
 }
 // post-header
 .post-header {
-	padding: 8px;
-	display: flex;
+    padding: 12px 12px 0;
+    display: flex;
+    position: relative;
 }
 .post-header-img {
 	height: 40px;
@@ -501,16 +528,66 @@ footer {
 	margin: 0 8px;
 
 	h1 {
-		margin: 0;
-		font-size: 14px;
+	    margin: 0 0 4px 0px;
+	    font-size: 14px;
+	}
+	.linkedin & h1::after {
+	    content: '\f08c';
+	    font-family: "Font Awesome 5 Brands";
+	    font-weight: normal;
+	    font-style: normal;
+	    margin: 0px 0px 0px 5px;
+	    text-decoration: none;
+	    color: $in-color;
+	}
+	.facebook & h1::after {
+	    content: '\f09a';
+	    font-family: "Font Awesome 5 Brands";
+	    font-weight: normal;
+	    font-style: normal;
+	    margin: 0px 0px 0px 5px;
+	    text-decoration: none;
+	    color: $fb-color;
 	}
 	p {
 		margin: 0;
+		color: $sub-text-color;
 	}
+}
+.post-header-date {
+	position: absolute;
+	right: 14px;
+	align-self: center;
+	color: $sub-text-color;
+
 }
 // end post-header
 // post content
 .post-content {}
+.post-content-text {
+	padding: 12px 16px;
+	font-size: 14px;
+	position: relative;
+	line-height: 20px;
+
+	button {
+		position: absolute;
+		right: 16px;
+		bottom: 12px;
+	    background: 0 0;
+	    background-color: #fff;
+	    border: none;
+	    padding: 0;
+	    cursor: pointer;
+	    font: inherit;
+	    color: $sub-text-color;
+
+		&:hover {
+			color: $bg-main-2;
+			text-decoration: underline;
+		}
+	}
+}
 .post-content-img {
 	height: 220px;
 	background-image: $post-img-link;//tempotary
@@ -521,7 +598,15 @@ footer {
 }
 // end post content
 .post-footer {
-	padding: 8px;
+	padding: 8px 20px;
+	font-size: 14px;
+
+	i, svg {
+		margin-left: 10px;
+	}
+	span {
+		margin-right: 10px;
+	}
 }
 
 /** end post box*/

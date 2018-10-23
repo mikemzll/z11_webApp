@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Links */
 /* Fonts */
 /* Colors */
@@ -10,6 +11,7 @@ html, body {
   padding: 0;
   background-color: #e9ebee;
   color: #1d2129;
+  font-family: Arial;
 }
 
 h1 {
@@ -19,7 +21,7 @@ h1 {
 
 p {
   font-family: Arial;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 a {
@@ -36,7 +38,7 @@ input {
 }
 
 .content-wrapper {
-  width: 1026px;
+  width: 1126px;
   margin: 0 auto;
 }
 
@@ -126,7 +128,7 @@ header .search-box {
 }
 
 #center-bar {
-  width: 490px;
+  width: 590px;
   margin: 0 15px;
   background-color: #e9ebee;
   border: solid 1px #e9ebee;
@@ -148,7 +150,7 @@ header .search-box {
   border: solid 1px #e9ebee;
 }
 
-@media (max-width: 1026px) {
+@media (max-width: 1126px) {
   #right-bar {
     position: relative !important;
   }
@@ -174,7 +176,7 @@ header .search-box {
 
 .text-box {
   text-align: center;
-  padding: 2px;
+  padding: 2px 16px;
   background-color: #fff;
   border-radius: 0;
   box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.15);
@@ -274,39 +276,56 @@ header .search-box {
   display: flex;
   justify-content: center;
   text-align: center;
-}
-.socials-box a {
-  background-color: #CCE1F2;
-  margin: 3px 12px;
-  display: block;
-  width: 24px;
-  height: 24px;
-  padding: 2px;
-  border: solid 1px #cecece;
-  border-radius: 2px;
-}
-.socials-box a:hover {
-  background-color: #fff;
-}
-.socials-box a:hover > .fa-facebook-f {
-  color: #415598;
-}
-.socials-box a:hover > .fa-linkedin-in {
-  color: #0077B5;
-}
-.socials-box a:hover > .fa-twitter {
-  color: #039AF1;
+  /* a {
+  	background-color: $bg-main;
+  	margin: 3px 12px;
+  	display: block;
+  	width: 24px;
+  	height: 24px;
+  	padding: 2px;
+  	border: $border;
+  	border-radius: $br-3;
+  	//box-shadow: $shadow-inset;
+
+  	&:hover {
+  		background-color: $bg-white;
+  	}
+  	&:hover > .fa-facebook-f {
+  		color: $fb-color;
+  	}
+  	&:hover > .fa-linkedin-in {
+  		color: $in-color;
+  	}
+  	&:hover > .fa-twitter {
+  		color: $tw-color;
+  	}
+  }
+  i, svg {
+  	margin: 2px;
+  	color: $bg-main-2;
+  	fill: #fff;
+  }
+
+  .facebook-a {
+  	padding: 2px 0px 2px 4px;
+  }
+  .fa-facebook-f {
+  	margin: 5px -3px 0 0;
+  } */
 }
 .socials-box i, .socials-box svg {
-  margin: 2px;
+  margin: 3px 12px;
   color: #3D818C;
   fill: #fff;
 }
-.socials-box .facebook-a {
-  padding: 2px 0px 2px 4px;
+.socials-box i.fa-facebook-square:hover, .socials-box svg.fa-facebook-square:hover {
+  color: #415598;
 }
-.socials-box .fa-facebook-f {
-  margin: 5px -3px 0 0;
+.socials-box i.fa-linkedin:hover, .socials-box svg.fa-linkedin:hover {
+  color: #0077B5;
+}
+.socials-box i.fa-twitter-square:hover, .socials-box svg.fa-twitter-square:hover {
+  color: #039AF1;
 }
 
 /** end overview-zone */
@@ -416,8 +435,9 @@ footer .socials-box a:last-child {
 }
 
 .post-header {
-  padding: 8px;
+  padding: 12px 12px 0;
   display: flex;
+  position: relative;
 }
 
 .post-header-img {
@@ -437,11 +457,60 @@ footer .socials-box a:last-child {
   margin: 0 8px;
 }
 .post-header-text h1 {
-  margin: 0;
+  margin: 0 0 4px 0px;
   font-size: 14px;
+}
+.linkedin .post-header-text h1::after {
+  content: "";
+  font-family: "Font Awesome 5 Brands";
+  font-weight: normal;
+  font-style: normal;
+  margin: 0px 0px 0px 5px;
+  text-decoration: none;
+  color: #0077B5;
+}
+.facebook .post-header-text h1::after {
+  content: "";
+  font-family: "Font Awesome 5 Brands";
+  font-weight: normal;
+  font-style: normal;
+  margin: 0px 0px 0px 5px;
+  text-decoration: none;
+  color: #415598;
 }
 .post-header-text p {
   margin: 0;
+  color: #494a4b;
+}
+
+.post-header-date {
+  position: absolute;
+  right: 14px;
+  align-self: center;
+  color: #494a4b;
+}
+
+.post-content-text {
+  padding: 12px 16px;
+  font-size: 14px;
+  position: relative;
+  line-height: 20px;
+}
+.post-content-text button {
+  position: absolute;
+  right: 16px;
+  bottom: 12px;
+  background: 0 0;
+  background-color: #fff;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: #494a4b;
+}
+.post-content-text button:hover {
+  color: #3D818C;
+  text-decoration: underline;
 }
 
 .post-content-img {
@@ -454,7 +523,14 @@ footer .socials-box a:last-child {
 }
 
 .post-footer {
-  padding: 8px;
+  padding: 8px 20px;
+  font-size: 14px;
+}
+.post-footer i, .post-footer svg {
+  margin-left: 10px;
+}
+.post-footer span {
+  margin-right: 10px;
 }
 
 /** end post box*/
