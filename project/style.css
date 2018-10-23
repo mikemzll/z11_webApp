@@ -143,7 +143,9 @@ header .search-box {
 }
 
 #right-bar {
-  position: fixed;
+  position: absolute;
+  background-color: #e9ebee;
+  border: solid 1px #e9ebee;
 }
 
 @media (max-width: 1026px) {
@@ -174,7 +176,6 @@ header .search-box {
   text-align: center;
   padding: 2px;
   background-color: #fff;
-  border: solid 1px #cecece;
   border-radius: 0;
   box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.15);
 }
@@ -182,7 +183,7 @@ header .search-box {
 .btn-big {
   text-align: center;
   font-family: sans;
-  font-size: 15px;
+  font-size: 18px;
   color: #3D818C;
   text-transform: uppercase;
   display: block;
@@ -192,8 +193,8 @@ header .search-box {
   width: 100%;
   height: 24px;
   padding: 5px 0;
+  border: solid 1px #cecece;
   border-radius: 2px;
-  box-shadow: inset 0 1px 1.5px 0 rgba(0, 0, 0, 0.15), 0 1px 1.5px 0 rgba(0, 0, 0, 0.15);
 }
 .btn-big:hover {
   background-color: #fff;
@@ -270,17 +271,19 @@ header .search-box {
 	}
 } */
 .socials-box {
+  display: flex;
+  justify-content: center;
   text-align: center;
 }
 .socials-box a {
   background-color: #CCE1F2;
-  margin: 3px 10px;
-  display: inline-block;
+  margin: 3px 12px;
+  display: block;
   width: 24px;
   height: 24px;
   padding: 2px;
+  border: solid 1px #cecece;
   border-radius: 2px;
-  box-shadow: inset 0 1px 1.5px 0 rgba(0, 0, 0, 0.15), 0 1px 1.5px 0 rgba(0, 0, 0, 0.15);
 }
 .socials-box a:hover {
   background-color: #fff;
@@ -315,10 +318,9 @@ header .search-box {
 }
 
 #z11-btn {
-  font-size: 18px;
-}
-#z11-btn:hover {
-  color: #000;
+  /*&:hover {
+  	color: #000; //#9CC3C7;
+  }*/
 }
 #z11-btn:hover > svg {
   color: #FF0016;
@@ -349,16 +351,19 @@ header .search-box {
 /** end Z11 Channel Zone */
 /** Footer */
 footer {
-  padding: 5px 16px;
-}
-footer div {
-  float: left;
+  padding: 5px 13px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
 footer .logo {
   border: solid 1px #cecece;
-  margin: 14px 6px;
 }
 footer .socials-box {
+  margin-right: 0;
+}
+footer .socials-box a:last-child {
   margin-right: 0;
 }
 
@@ -406,15 +411,92 @@ footer .socials-box {
 /** post box */
 .post-box {
   background-color: #fff;
-  min-height: 250px;
-  /*temporary*/
   border-radius: 0;
-  border: solid 1px #cecece;
   box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.15);
 }
 
-/** end post */
+.post-header {
+  padding: 8px;
+  display: flex;
+}
+
+.post-header-img {
+  height: 40px;
+  width: 40px;
+  background-image: url(img/joe.jpeg);
+  /*temporary*/
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.post-header-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 8px;
+}
+.post-header-text h1 {
+  margin: 0;
+  font-size: 14px;
+}
+.post-header-text p {
+  margin: 0;
+}
+
+.post-content-img {
+  height: 220px;
+  background-image: url(img/post-img.jpeg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #1d2129;
+}
+
+.post-footer {
+  padding: 8px;
+}
+
+/** end post box*/
 /*end Center Bar */
+/* Right Bar*/
+/** Bot */
+#bot-box {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/** end Bot*/
+/** Events */
+#events-box {
+  background-color: #CCE1F2;
+}
+#events-box a {
+  font-style: italic;
+}
+#events-box li {
+  list-style-type: none;
+}
+#events-box ul {
+  margin-left: 0;
+  padding-left: 0;
+  font-size: 14px;
+  font-family: Arial;
+}
+#events-box hr {
+  width: 80%;
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cecece;
+  margin: 1em auto;
+  padding: 0;
+}
+
+/**end Events*/
+/* end Right Bar*/
 /* end Content */
 
 /*# sourceMappingURL=style.css.map */

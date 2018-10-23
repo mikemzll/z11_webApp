@@ -3,6 +3,8 @@
 $main-ava-link: url(img/joe.jpeg);
 $right-ava-link: url(img/satya.jpeg);
 $left-ava-link: url(img/bill.jpeg);
+$post-img-link: url(img/post-img.jpeg);
+
 				
 					/* Fonts */
 $font-title: sans;
@@ -35,7 +37,7 @@ $br-0: 0;
 $border: solid 1px $border-color;
 
 $h1-font-size: 18px;
-$btn-big-font-size: 15px;
+$btn-big-font-size: 18px;
 					/* end Sizes */
 
 
@@ -161,7 +163,9 @@ header {
 	border: solid 1px $bg-gray;//temporary
 }
 #right-bar {
-	position: fixed;
+	position: absolute;//fixed;
+	background-color: $bg-gray;//temporary
+	border: solid 1px $bg-gray;//temporary
 }
 @media (max-width: $content-wrapper-width) {
 	#right-bar {
@@ -186,7 +190,7 @@ header {
 	text-align: center;
 	padding: 2px;
 	background-color: $bg-white;
-	border: $border;
+	//border: $border;
 	border-radius: $br-0;
 	box-shadow: $shadow;
 }
@@ -204,10 +208,10 @@ header {
 	width: 100%;
 	height: 24px;
 	padding: 5px 0;
-	//border: solid 1px $border-color; 
+	border: $border;
 	border-radius: $br-3;
 
-	box-shadow: $shadow-inset;
+	//box-shadow: $shadow-inset;
 
 	&:hover {
 		background-color: $bg-white;
@@ -302,17 +306,21 @@ header {
 	}
 } */
 .socials-box {
+	display: flex;
+	justify-content: center;
+
 	text-align: center;
+
 	a {
 		background-color: $bg-main;
-		margin: 3px 10px;
-		display: inline-block;
+		margin: 3px 12px;
+		display: block;
 		width: 24px;
 		height: 24px;
 		padding: 2px;
-		//border: solid 1px $border-color; 
+		border: $border;
 		border-radius: $br-3;
-		box-shadow: $shadow-inset;
+		//box-shadow: $shadow-inset;
 
 		&:hover {
 			background-color: $bg-white;
@@ -361,11 +369,11 @@ header {
 	}
 }
 #z11-btn {	
-	font-size: 18px;
+	//font-size: 18px;
 		
-	&:hover {
+	/*&:hover {
 		color: #000; //#9CC3C7;
-	}
+	}*/
 	&:hover > svg {
 		color: #FF0016;
 	}
@@ -398,17 +406,22 @@ header {
 
 /** Footer */
 footer {
-	padding: 5px 16px;
 
-	div {
-		float: left;
-	}
+    padding: 5px 13px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
 	.logo {
 		border: $border;
-		margin: 14px 6px;
 	}
 	.socials-box {
 		margin-right: 0;
+
+		a:last-child {
+			margin-right: 0;
+		}
 	}
 }
 /** end Footer */
@@ -461,16 +474,97 @@ footer {
 /** post box */
 .post-box {
 	background-color: $bg-white;
-	min-height: 250px;/*temporary*/
 	//margin: 5px;
-	//border: solid 1px $border-color;//temporary
 	border-radius: $br-0;
-	border: $border;
+	//border: $border;
 	box-shadow: $shadow;
 }
+// post-header
+.post-header {
+	padding: 8px;
+	display: flex;
+}
+.post-header-img {
+	height: 40px;
+	width: 40px;
+	background-image: $main-ava-link;/*temporary*/
+	background-size: cover;
+	background-position: center;
 
-/** end post */
+	//border: $border;
+	border-radius: $br-circle;
+}
+.post-header-text {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0 8px;
+
+	h1 {
+		margin: 0;
+		font-size: 14px;
+	}
+	p {
+		margin: 0;
+	}
+}
+// end post-header
+// post content
+.post-content {}
+.post-content-img {
+	height: 220px;
+	background-image: $post-img-link;//tempotary
+	background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: $text-color;
+}
+// end post content
+.post-footer {
+	padding: 8px;
+}
+
+/** end post box*/
 
 		/*end Center Bar */
+
+		/* Right Bar*/
+/** Bot */
+#bot-box {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+/** end Bot*/ 
+
+/** Events */
+#events-box {
+	background-color: $bg-main;
+
+	a {
+		font-style: italic;
+	}
+	li {
+    	list-style-type: none;
+   	}
+   	ul {
+    	margin-left: 0; 
+	    padding-left: 0;
+	    font-size: 14px;
+	    font-family: $font-text;
+   	}
+   	hr {
+   		width: 80%;
+	    display: block;
+	    height: 1px;
+	    border: 0;
+	    border-top: 1px solid $border-color;
+	    margin: 1em auto;
+	    padding: 0; 
+	}
+}
+/**end Events*/
+		/* end Right Bar*/
 
 							/* end Content */
