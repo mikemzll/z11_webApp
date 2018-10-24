@@ -108,13 +108,12 @@ header .search-box {
   font-size: 28px;
 }
 
-.weather-icon .shadow {
-  position: relative;
-  top: -36px;
-  color: #cecece;
-  z-index: -10;
-}
-
+/* .weather-icon .shadow {
+    position: relative;
+    top: -36px;
+    color: $border-color;
+    z-index: -10;
+} */
 /* end Header */
 /* Content */
 /* Main */
