@@ -36,15 +36,19 @@ p { margin: 1.375rem 0; } */
   /* control icon size here */
 }
 
-.sun-shower > .cloud,
-.rainy > .cloud,
+/* .sun-shower > .cloud, 
+.rainy > .cloud, 
 .thunder-storm,
 .flurries > .cloud {
-  color: #e9ebee;
+  color: $bg-gray-color;
+}
+.cloudy >  */
+.icon {
+  color: #448DC8;
 }
 
-.cloudy > .cloud {
-  color: #CCE1F2;
+.cloudy > .cloud:after {
+  box-shadow: 0 0.4375em 0 -0.0625em #fff;
 }
 
 .cloud {
@@ -67,9 +71,9 @@ p { margin: 1.375rem 0; } */
   left: -0.5em;
   display: block;
   width: 4.5625em;
-  height: 1em;
+  height: 1.7em;
   background: currentColor;
-  box-shadow: 0 0.4375em 0 -0.0625em #fff;
+  box-shadow: 0 0.4375em 0 -0.0625em #448DC8;
 }
 
 .cloud:nth-child(2) {
@@ -229,49 +233,43 @@ p { margin: 1.375rem 0; } */
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: -0.6em 0 0 -0.7em;
-  font-size: 3em;
+  margin: -1.5em 0 0 -1.25em;
   color: #fff;
   list-height: 1em;
-  opacity: 1;
-  animation: snowSpin 6s linear infinite reverse;
+  animation: snowSpin 3s linear infinite;
+  opacity: 0.8;
 }
 
 /* .flake:after {
-  margin: 0.125em 0 0 -1em;
-  font-size: 2em;
-  opacity: 1;
+  margin: -0.2em 0 0 -1em;
+  font-size: 1.5em;
   animation: spin 14s linear infinite;
 } */
 .flake:nth-child(2):before {
-  margin: -0.2em 0 0 0.4em;
-  font-size: 2em;
-  opacity: 1;
-  animation: snowSpin 4s linear infinite;
+  margin: -1.25em 0 0 0.4em;
+  font-size: 1.25em;
+  animation: snowSpin 5s linear infinite;
+  opacity: 0.8;
 }
 
 /* .flake:nth-child(2):after {
-  margin: 0.375em 0 0 0.125em;
-  font-size: 2.5em;
-  opacity: 1;
+  margin: -0.2em 0 0 0.125em;
+  font-size: 2em;
   animation: spin 16s linear infinite reverse;
 } */
 /* Animations */
-@keyframes snowSpin {
-  30% {
-    opacity: 0;
-  }
-  60% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-    transform: rotate(360deg);
-  }
-}
 @keyframes spin {
   100% {
     transform: rotate(360deg);
+  }
+}
+@keyframes snowSpin {
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(2) translate(0%, 0.8em);
   }
 }
 @keyframes cloud {
@@ -279,10 +277,10 @@ p { margin: 1.375rem 0; } */
     opacity: 0;
   }
   30% {
-    opacity: 1;
+    opacity: 0.8;
   }
   70% {
-    opacity: 1;
+    opacity: 0.8;
   }
   100% {
     opacity: 0;

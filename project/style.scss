@@ -7,15 +7,22 @@ $post-img-link: url(img/post-img.jpeg);
 
 				
 					/* Fonts */
+@font-face {
+  font-family: "KeepCalm";
+  src: url('KeepCalm-Medium.ttf');
+}
+
 $font-title: sans;
 $font-text: Arial;
 
 					/* Colors */
 $bg-gray: #e9ebee;
-$bg-gray-2: #F3F3F3;
-$bg-main: #CCE1F2;
-$bg-main-2: #3D818C;
+//$bg-gray-2: #F3F3F3;
+$bg-base: #CCE1F2; //#E1EFFB; //#CCE1F2
+$bg-main: #448DC8; //#83B5DD; //#9DCCF3;
+$bg-accent: #326C9B; //#448DC8; //#5CAAEA; //#3D818C
 $bg-white: #fff;
+
 $border-color: #cecece;
 $text-color: #1d2129;
 $sub-text-color: #494a4b;
@@ -23,6 +30,7 @@ $sub-text-color: #494a4b;
 $fb-color: #415598;
 $in-color: #0077B5;
 $tw-color: #039AF1;
+$yt-color: #ff0000;
 
 $shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.15);// 0 1.5px 3px 0 rgba(0, 0, 0, 0.15);
 $shadow-inset: inset 0 1px 1.5px 0 rgba(0,0,0,.15), 0 1px 1.5px 0 rgba(0,0,0,.15);
@@ -30,7 +38,7 @@ $shadow-inset: inset 0 1px 1.5px 0 rgba(0,0,0,.15), 0 1px 1.5px 0 rgba(0,0,0,.15
 
 					/* Sizes */
 $content-wrapper-width: 1126px;
-$side-bar-width: 250px;
+$side-bar-width: 253px;
 $center-bar-width: 590px;
 
 $br-circle: 50%;
@@ -58,6 +66,7 @@ html, body {
 h1 {
 	font-family: $font-title;
     font-size: 18px;
+    color: $text-color;
 }
 p {
 	font-family: $font-text;
@@ -76,6 +85,11 @@ input {
 .content-wrapper {
 	width: $content-wrapper-width;
 	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+}
+.flex {
+	display: flex;
 }
 .float-right {
 	float: right;
@@ -89,9 +103,9 @@ header {
 	color: #fff;
 	min-width: 100%;
     position: fixed;
-	padding: 4px 6px;
+	padding: 4px 0;
 	background-color: $bg-main;
-	border-bottom: solid 1px $border-color;
+	border-bottom: solid 1px $bg-accent;
 	z-index: 10000;
 	box-shadow: $shadow;
 
@@ -99,26 +113,45 @@ header {
 		width: 200px;
 		box-shadow: none;
 	}
+	.content-wrapper {
+		align-items: center;
+	}
+}
+#header-flex-left, #header-flex-right {
+	flex-grow: 1;
+	width: 210px;
+	margin: 0 6px;
+	align-items: center;
+}
+#header-flex-center {
+	flex-grow: 2;
+	justify-content: center;
+	width: 0px;
+}
+#header-flex-right {
+	justify-content: flex-end;
 }
 .in-header-box {
 	margin: 0 10px;
-	float: left;
-	border: solid 1px $border-color;
+	//float: left;
+	//border: solid 1px $border-color;
+
 }
 .logo {
 	height: 28px;
 	width: 40px;
 	background-image: url(img/Z11.3.1.png);
 	background-size: cover;
-	background-position: -1px 50%;
-	border-radius: $br-3;
+	background-position: center;
+	//border-radius: $br-3;
 }
 #header-info-box {
 	border: none;
 	margin: 0 20px;
+	display: flex;
 }
 .in-header-info-box {
-	float: left;
+	//float: left;
 	margin: 0 10px;
 }
 .header-info {
@@ -126,8 +159,9 @@ header {
 	width: 140px;
 	text-align: center;
 	font-family: $font-title;
-	background-color: $bg-main-2;
+	background-color: $bg-accent;
 	border-radius: $br-5;
+	color: $bg-gray;
 }
 .weather-icon {
 	width: 35px;
@@ -142,13 +176,18 @@ header {
     color: $border-color;
     z-index: -10;
 } */
+#header-login-box {
+	span {
+		color: $bg-accent;
+	}
+}
 
 					/* end Header */
 
 					/* Content */
 		/* Main */
 .bar {
-	background-color: $bg-main;//temporary
+	background-color: $bg-base;//temporary
 	border: solid 1px $border-color;//temporary
 }
 #center-right-bar {
@@ -162,6 +201,7 @@ header {
 }
 .side-bar { 
 	width: $side-bar-width;
+	color: $sub-text-color;
 }
 #left-bar {
 	position: absolute;//fixed;
@@ -202,13 +242,14 @@ header {
 }
 .btn-big {	
 	text-align: center;
-	font-family: $font-title;
+	font-family: KeepCalm;
 	font-size: $btn-big-font-size;
-	color: $bg-main-2;
+	color: $bg-gray;
 	text-transform: uppercase;
+	line-height: 1.5;
 
-	display: block;
-	background-color: $bg-main;
+	//display: block;
+	background-color: $bg-accent;
 	margin: 3px 0;
 	display: inline-block;
 	width: 100%;
@@ -220,7 +261,19 @@ header {
 	//box-shadow: $shadow-inset;
 
 	&:hover {
-		background-color: $bg-white;
+		background-color: $bg-main;
+		color: $bg-white;
+	}
+
+	i, svg {
+		//margin-left: -5px; 
+		color: $bg-gray;
+		fill: $bg-gray;
+
+		&:hover {
+			color: $bg-white;
+			fill: $bg-white;
+		}
 	}
 }
 		/* end Main */
@@ -268,6 +321,7 @@ header {
 	&:hover {
 		width: 85px;
 		height: 85px;
+		cursor: pointer;
 	}
 }
 .right-ava {
@@ -302,8 +356,8 @@ header {
 
  	i, svg {
  		margin: 3px 10px;
- 		color: $bg-main;
- 		fill: $bg-main;
+ 		color: $bg-base;
+ 		fill: $bg-base;
  	}
  	i:hover, svg:hover {
  		margin: 3px 10px;
@@ -320,7 +374,7 @@ header {
 	
 	i, svg {
 		margin: 3px 12px;
-		color: $bg-main-2;
+		color: $bg-accent;
 		fill: #fff;
 
 		&.fa-facebook-square:hover {
@@ -332,11 +386,14 @@ header {
 		&.fa-twitter-square:hover {
 			color: $tw-color;
 		}
+		&.fa-youtube-square:hover {
+			color: $yt-color;
+		}
 	}
 
 	// alternative
 	/* a {
-		background-color: $bg-main;
+		background-color: $bg-base;
 		margin: 3px 12px;
 		display: block;
 		width: 24px;
@@ -361,7 +418,7 @@ header {
 	}
 	i, svg {
 		margin: 2px;
-		color: $bg-main-2;
+		color: $bg-accent;
 		fill: #fff;
 	}
 
@@ -378,34 +435,34 @@ header {
 
 // overview-box
 #overview-box {
+	background-color: $bg-base;
 }
 // end overview-box
 
 /** end overview-zone */
 
 /** Z11 Channel Zone */
-.channel-zone {
-}
-#z11-btn-box {
-
-	i, svg {
-		margin-left: -5px; 
-		color: #3D818C;
-		fill: #3D818C;
-	}
-}
+/* .channel-zone {
+} */
+/* #z11-btn-box {
+	/* i, svg {
+		//margin-left: -5px; 
+		color: $bg-white;
+		fill: $bg-white;
+	} 
+} */
 #z11-btn {	
+	//font-family: KeepCalm;
 	//font-size: 18px;
 		
 	/*&:hover {
 		color: #000; //#9CC3C7;
-	}*/
-	&:hover > svg {
-		color: #FF0016;
 	}
-}
+	/*&:hover > svg {
+		color: #FF0016;
+	}*/
+} 
 #video-links-box {
-
 	a {
 		font-style: italic;
 	}
@@ -432,7 +489,6 @@ header {
 
 /** Footer */
 footer {
-
     padding: 5px 13px;
     display: flex;
     flex-direction: row;
@@ -473,8 +529,8 @@ footer {
 		height: 17px;
 	}
 	i, svg {
-		color: #3D818C;
-		fill: #3D818C;
+		color: $bg-accent;
+		fill: $bg-accent;
 	}
 }
 /** end search box*/
@@ -530,24 +586,27 @@ footer {
 	h1 {
 	    margin: 0 0 4px 0px;
 	    font-size: 14px;
-	}
-	.linkedin & h1::after {
-	    content: '\f08c';
-	    font-family: "Font Awesome 5 Brands";
-	    font-weight: normal;
-	    font-style: normal;
-	    margin: 0px 0px 0px 5px;
-	    text-decoration: none;
-	    color: $in-color;
-	}
-	.facebook & h1::after {
-	    content: '\f09a';
-	    font-family: "Font Awesome 5 Brands";
-	    font-weight: normal;
-	    font-style: normal;
-	    margin: 0px 0px 0px 5px;
-	    text-decoration: none;
-	    color: $fb-color;
+
+	    &::after {
+		    font-family: "Font Awesome 5 Brands";
+		    font-weight: normal;
+		    font-style: normal;
+			margin: 0px 0px 0px 5px;
+			text-decoration: none;
+
+			.linkedin & {
+			    content: '\f08c';
+				color: $in-color;
+			}
+			.facebook & {
+				content: '\f09a';
+			    color: $fb-color;
+			}
+			.twitter & {
+			    content: '\f081';
+			    color: $tw-color;
+			}
+		}
 	}
 	p {
 		margin: 0;
@@ -583,7 +642,7 @@ footer {
 	    color: $sub-text-color;
 
 		&:hover {
-			color: $bg-main-2;
+			color: $bg-accent;
 			text-decoration: underline;
 		}
 	}
@@ -625,7 +684,7 @@ footer {
 
 /** Events */
 #events-box {
-	background-color: $bg-main;
+	background-color: $bg-base;
 
 	a {
 		font-style: italic;

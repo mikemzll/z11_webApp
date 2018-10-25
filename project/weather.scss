@@ -26,7 +26,7 @@ a {
   font-size: small;
 }
 p { margin: 1.375rem 0; } */
-$bg-main-color: #CCE1F2;
+$bg-main-color: #448DC8; //#83B5DD;//#9DCCF3;//#CCE1F2
 $bg-transparent: #FFF0;
 $bg-gray-color: #e9ebee;
 
@@ -38,14 +38,18 @@ $bg-gray-color: #e9ebee;
   font-size: 5px; /* control icon size here */
 }
 
-.sun-shower > .cloud, 
+/* .sun-shower > .cloud, 
 .rainy > .cloud, 
 .thunder-storm,
 .flurries > .cloud {
   color: $bg-gray-color;
 }
-.cloudy > .cloud {
+.cloudy >  */.icon {
   color: $bg-main-color;
+}
+
+.cloudy > .cloud:after {
+  box-shadow: 0 0.4375em 0 -0.0625em #fff;
 }
 
 .cloud {
@@ -72,9 +76,9 @@ $bg-gray-color: #e9ebee;
   left: -0.5em;
   display: block;
   width: 4.5625em;
-  height: 1em;
+  height: 1.7em;
   background: currentColor;
-  box-shadow: 0 0.4375em 0 -0.0625em #fff;
+  box-shadow: 0 0.4375em 0 -0.0625em $bg-main-color;
 }
 .cloud:nth-child(2) {
   z-index: 0;
@@ -224,57 +228,54 @@ $bg-gray-color: #e9ebee;
   border-left: 0.375em solid;
 }
 
-.flake:before
-/* ,.flake:after */ {
+.flake:before/* ,
+.flake:after */ {
   content: '\2744';
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: -0.6em 0 0 -0.7em;
-  font-size: 3em;
+  margin: -1.5em 0 0 -1.25em;
   color: #fff;
   list-height: 1em;
-  opacity: 1;
-  animation: snowSpin 6s linear infinite reverse;
+  animation: snowSpin 3s linear infinite;
+  opacity: 0.8;
 }
 /* .flake:after {
-  margin: 0.125em 0 0 -1em;
-  font-size: 2em;
-  opacity: 1;
+  margin: -0.2em 0 0 -1em;
+  font-size: 1.5em;
   animation: spin 14s linear infinite;
 } */
 .flake:nth-child(2):before {
-  margin: -0.2em 0 0 0.4em;
-  font-size: 2em;
-  opacity: 1;
-  animation: snowSpin 4s linear infinite;
+  margin: -1.25em 0 0 0.4em;
+  font-size: 1.25em;
+  animation: snowSpin 5s linear infinite;
+  opacity: 0.8;
 }
 /* .flake:nth-child(2):after {
-  margin: 0.375em 0 0 0.125em;
-  font-size: 2.5em;
-  opacity: 1;
+  margin: -0.2em 0 0 0.125em;
+  font-size: 2em;
   animation: spin 16s linear infinite reverse;
 } */
 
 
 /* Animations */ 
 
-@keyframes snowSpin {
-  30% { opacity: 0; }
-  60% { opacity: 1; }
-  100% { 
-    opacity: 1;
-    transform: rotate(360deg); 
-  }
-}
- @keyframes spin {
+@keyframes spin {
   100% { transform: rotate(360deg); }
+}
+
+@keyframes snowSpin {
+  0% { opacity: .2; }
+  100% {
+    opacity: 1;
+    transform: scale(2) translate(0%, .8em);
+  }
 }
 
 @keyframes cloud {
   0% { opacity: 0; }
-  30% { opacity: 1; }
-  70% { opacity: 1; }
+  30% { opacity: .8; }
+  70% { opacity: .8; }
   100% {
     opacity: 0;
     transform: scale(0.5) translate(-200%, -3em);
