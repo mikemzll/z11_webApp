@@ -4,6 +4,8 @@ $main-ava-link: url(img/joe.jpeg);
 $right-ava-link: url(img/satya.jpeg);
 $left-ava-link: url(img/bill.jpeg);
 $post-img-link: url(img/post-img.jpeg);
+$logo-main: url(img/Z11.3.1.tr.cr.min.png);
+$logo-white: url(img/Z11.3.W.tr.min.png);
 
 				
 					/* Fonts */
@@ -17,6 +19,7 @@ $font-text: Arial;
 
 					/* Colors */
 $bg-gray: #e9ebee;
+$bg-transparent: #fff0;
 //$bg-gray-2: #F3F3F3;
 $bg-base: #CCE1F2; //#E1EFFB; //#CCE1F2
 $bg-main: #448DC8; //#83B5DD; //#9DCCF3;
@@ -116,6 +119,9 @@ header {
 	.content-wrapper {
 		align-items: center;
 	}
+	.logo {
+		background-image: $logo-white;
+	}
 }
 #header-flex-left, #header-flex-right {
 	flex-grow: 1;
@@ -140,7 +146,6 @@ header {
 .logo {
 	height: 28px;
 	width: 40px;
-	background-image: url(img/Z11.3.1.png);
 	background-size: cover;
 	background-position: center;
 	//border-radius: $br-3;
@@ -198,12 +203,14 @@ header {
 }
 #center-right-bar {
 	position: relative;
+    display: flex;
+    flex-direction: row-reverse;
 }
 #center-bar {
 	width: $center-bar-width;
 	margin: 0 15px;
-	background-color: $bg-gray;//temporary
-	border: solid 1px $bg-gray;//temporary
+	background-color: $bg-transparent;//temporary
+	border: solid 1px $bg-transparent;//temporary
 }
 .side-bar { 
 	width: $side-bar-width;
@@ -211,17 +218,18 @@ header {
 }
 #left-bar {
 	position: absolute;//fixed;
-	background-color: $bg-gray;//temporary
-	border: solid 1px $bg-gray;//temporary
+	background-color: $bg-transparent;//temporary
+	border: solid 1px $bg-transparent;//temporary
 }
 #right-bar {
 	position: absolute;//fixed;
-	background-color: $bg-gray;//temporary
-	border: solid 1px $bg-gray;//temporary
+	background-color: $bg-transparent;//temporary
+	border: solid 1px $bg-transparent;//temporary
 }
 @media (max-width: $content-wrapper-width) {
-	#right-bar {
-		position: relative!important;
+	#left-bar ,#right-bar {
+		position: absolute!important;
+		top: auto!important;
 	}
 }
 .zone {
@@ -501,8 +509,9 @@ footer {
     align-items: center;
 
 	.logo {
-		border: $border;
+		//border: $border;
 		margin: 0 12px;
+		background-image: $logo-main;
 	}
 	.socials-box {
 		//margin-right: 0;
@@ -722,6 +731,12 @@ footer {
 	color: $sub-text-color;
 	font-size: 12px;
 
+	ul {
+    	margin-left: 0; 
+	    padding-left: 0;
+	    display: flex;
+		justify-content: space-around;
+	}
 	li {
     	list-style-type: none;
     	display: inline-block;
@@ -731,10 +746,6 @@ footer {
     		padding-left: 0;
     	} */
    	}
-   	ul {
-    	margin-left: 0; 
-	    padding-left: 0;
-	}
 	/* .privacy {
    		text-align: center;
 	} */
