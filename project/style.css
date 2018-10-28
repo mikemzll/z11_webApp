@@ -240,7 +240,7 @@ header .logo {
   border: solid 1px #cecece;
   border-radius: 2px;
 }
-.btn-big:hover {
+.btn-big:hover, .btn-big:hover svg {
   background-color: #448DC8;
   color: #fff;
 }
@@ -480,11 +480,14 @@ footer .socials-box {
   font-family: Arial;
 }
 .tags-box li {
-  margin-right: 3px;
+  margin-right: 7px;
   list-style-type: none;
   display: inline-block;
 }
-.tags-box a.clicked {
+.tags-box li:last-child {
+  margin-right: 0px;
+}
+.tags-box .clicked {
   font-weight: 600;
 }
 
@@ -544,6 +547,7 @@ footer .socials-box {
 .post-header-text p {
   margin: 0;
   color: #494a4b;
+  max-width: 80%;
 }
 
 .post-header-date {

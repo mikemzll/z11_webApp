@@ -11,10 +11,13 @@
 
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous"><!-- temporary -->
-	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-kW+oWsYx3YpxvjtZjFXqazFpA7UP/MbiY4jvs+RWZo2+N94PFZ36T6TFkc9O3qoB" crossorigin="anonymous"></script><!-- temporary --><!-- end Font Awesome
+	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-kW+oWsYx3YpxvjtZjFXqazFpA7UP/MbiY4jvs+RWZo2+N94PFZ36T6TFkc9O3qoB" crossorigin="anonymous"></script><!-- temporary --><!-- end Font Awesome -->
 
 </head>
 <body>
+
+	<script src="https://unpkg.com/vue"></script>
+
 	<!-- Header -->
 	<header>
 
@@ -39,49 +42,9 @@
 					<div class="temp header-info in-header-info-box">15 °C | °F</div><!-- end Degrees C/F -->
 					
 					<!-- Weather Icon -->
-					<div class="weather-icon in-header-info-box">
-						<!-- <i class="fas fa-cloud"></i>
-						<i class="fas fa-cloud shadow"></i> -->
-
-						<div class="icon thunder-storm">
-							<div class="cloud"></div>
-							<div class="lightning">
-								<div class="bolt"></div>
-								<div class="bolt"></div>
-							</div>
-						</div>
-
-						<!-- <div class="icon cloudy">
-							<div class="cloud"></div>
-							<div class="cloud"></div>
-						</div> -->
-
-						<!-- <div class="icon sunny">
-							<div class="sun">
-								<div class="rays"></div>
-							</div>
-						</div> -->
-
-						<!-- <div class="icon sun-shower">
-							<div class="cloud"></div>
-							<div class="sun">
-								<div class="rays"></div>
-							</div>
-							<div class="rain"></div>
-						</div> -->
-
-						<!-- <div class="icon rainy">
-							<div class="cloud"></div>
-							<div class="rain"></div>
-						</div> -->
-
-						<!-- <div class="icon flurries">
-							<div class="cloud"></div>
-							<div class="snow">
-								<div class="flake"></div>
-								<div class="flake"></div>
-							</div>
-						</div> -->
+					<div id="weather-icon" class="weather-icon in-header-info-box">
+						
+						<z-weather-icon></z-weather-icon>
 
 					</div><!-- end Weather Icon -->
 
@@ -132,13 +95,7 @@
 						<i class="fab fa-linkedin fa-2x"></i>
 						<i class="fab fa-twitter-square fa-2x"></i>
 					</div>
-					<!-- Alternative -->
-					<!-- <div class="box socials-box">
-						<a class="facebook-a" href="#"><i class="fab fa-facebook-f fa-lg"></i></a>
-						<a href="#"><i class="fab fa-linkedin-in fa-lg"></i></a>
-						<a href="#"><i class="fab fa-twitter fa-lg"></i></a>
-					</div> --><!-- Social icons -->
-
+					
 					<!-- Team Members Overview -->
 					<div id="overview-box" class="box text-box">
 						<h1>Name Surname</h1>
@@ -149,53 +106,15 @@
 				</div> <!-- Team members Zone -->
 
 				<!-- Z11 Channel Zone-->
-				<div class="zone channel-zone">
-
-					<!-- Z11 link button -->
-					<div id="z11-btn-box" class="box">
-						<a href="" id="z11-btn" class="btn-big">
-							<i class="fab fa-youtube fa-lg"></i>
-							 z11
-						</a>
-					</div><!-- end Z11 link button -->
-
-					<!-- video-links-box -->
-					<div id="video-links-box" class="box text-box">
-
-						<h1>Comming Soon</h1>
-						<ul>
-							<li>21.12 - <a href="">name of topic</a></li>
-						</ul>
-
-						<hr>
-
-						<h1>Recent Materials</h1>
-						<ul>
-							<li>21.12 - <a href="">name of topic</a></li>
-							<li>21.12 - <a href="">name of topic</a></li>
-							<li>21.12 - <a href="">name of topic</a></li>
-							<li>21.12 - <a href="">name of topic</a></li>
-							<li>21.12 - <a href="">name of topic</a></li>
-						</ul>
-
-					</div><!-- end video-links-box -->
-				</div><!-- end Z11 Channel Zone-->
+				<z-channel-zone></z-channel-zone>
 				
 				<!-- Footer -->
 				<footer class="zone">
 					<div class="box socials-box">
 						<div class="logo"></div>
 
-						<i class="fab fa-facebook-square fa-2x"></i>
-						<i class="fab fa-youtube-square fa-2x"></i>
-						<i class="fab fa-linkedin fa-2x"></i>
+						<z-social-icon v-for="icon in icons" :icon="icon" :key="icon.id" ></z-social-icon>
 					</div>
-					<!-- Alternative -->
-					<!-- <div class="box socials-box">
-						<a class="facebook-a" href="#"><i class="fab fa-facebook-f fa-lg"></i></a>
-						<a href="#"><i class="fab fa-linkedin-in fa-lg"></i></a>
-						<a href="#"><i class="fab fa-twitter fa-lg"></i></a>
-					</div> --><!-- Social icons -->
 				</footer><!-- end Footer -->
 
 			</div>
@@ -225,62 +144,10 @@
 					</div><!-- end Bot zone -->
 
 					<!-- Events zone-->
-					<div class="zone events-zone">
-						<!-- Events list -->
-						<div id="events-box" class="box text-box">
-							<h1>Comming Events</h1>
-							<ul>
-								<li>21.12 - <a href="">name of event</a></li>
-								<li>21.12 - <a href="">name of event</a></li>
-								<li>21.12 - <a href="">name of event</a></li>
-								<li>21.12 - <a href="">name of event</a></li>
-							</ul>
-
-							<hr>
-
-							<h1>Recent Events</h1>
-							<ul>
-								<li>21.12 - <a href="">name of event</a></li>
-								<li>21.12 - <a href="">name of event</a></li>
-							</ul>
-						</div><!-- end Events list -->
-
-						<!-- Events button -->
-						<div id="event-btn-box" class="box">
-							<a href="" class="btn-big">
-								<i class="fas fa-calendar-alt"></i>
-								meet
-							</a>
-						</div><!-- end Events button -->
-
-					</div><!-- end Events zone-->
+					<z-events-zone></z-events-zone>
 
 					<!-- Privacy Policy etc -->
-					<div id="privacy-zone" class="zone">
-						<div class="box">
-							<ul class="languages">
-								<li><a href="">English</a></li>
-								<li><a href="">Українська</a></li>
-								<li><a href="">Magyar</a></li>
-							</ul>
-
-							<hr>
-
-							<ul class="privacy">
-								<li><a href="">About</a></li>
-								<li><a href="">Privacy</a></li>
-								<li><a href="">Cookies</a></li>
-								<li><a href="">Help</a></li>
-							</ul>
-
-							<ul>
-								<li><span id="copyright">Z11 Tech © 2018</span></li>
-								<li>|</li>
-								<li><a href="mailto:info@z11.tech">info@z11.tech</a></li>
-							</ul>
-							
-						</div>
-					</div><!-- end Privacy Policy etc -->
+					<z-privacy-zone></z-privacy-zone><!-- end Privacy Policy etc -->
 
 				</div>
 			</div><!-- end Right Bar -->
@@ -293,141 +160,13 @@
 					<i class="fas fa-search"></i>
 				</div><!-- end search input -->
 				
-				<!-- tags -->
-				<div class="box tags-box">
-					<ul>
-						<li><a href="" class="clicked">#casestudies</a></li>
-						<li><a href="">#blog</a></li>
-						<li><a href="">#trends</a></li>
-						<li><a href="">#ourtean</a></li>
-						<li><a href="">#meetup</a></li>
-						<li>#asdfasf</li>
-					</ul>
-				</div><!-- end tags -->
-
-				<div class="box post-box linkedin">
-					<div class="post-header">
-						<div class="post-header-img"></div>
-						<div class="post-header-text">
-							<h1>Source title</h1>
-							<p>Subtitle</p>
-						</div>
-						<div class="post-header-date">
-							<p>Today at 8 pm</p>
-						</div>
-					</div>
-					<div class="post-content">
-						<div class="post-content-text">
-							<!-- max 230 symbols -->
-							<span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type</span>
-							<button>...see more</button>
-						</div>
-						<div class="post-content-img"></div>
-					</div>
-					<div class="post-footer">
-						<i class="far fa-thumbs-up"></i>
-						<span>167</span>
-						-
-						<i class="far fa-comments"></i>
-						<span>14</span>
-						-
-						<i class="far fa-eye"></i>
-						<span>500</span>
-					</div>
+				<div id="z-posts">
+					<!-- Tags -->
+					<z-tag></z-tag><!-- end Tags -->
+					<!-- Posts -->
+					<z-post></z-post><!-- end Posts -->
 				</div>
-
-				<div class="box post-box facebook">
-					<div class="post-header">
-						<div class="post-header-img"></div>
-						<div class="post-header-text">
-							<h1>Source title</h1>
-							<p>Subtitle</p>
-						</div>
-						<div class="post-header-date">
-							<p>Yesterday</p>
-						</div>
-					</div>
-					<div class="post-content">
-						<div class="post-content-text">
-							<!-- max 230 symbols -->
-							<span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type</span>
-							<button>...see more</button>
-						</div>
-						<div class="post-content-img"></div>
-					</div>
-					<div class="post-footer">
-						<i class="far fa-thumbs-up"></i>
-						<span>167</span>
-						-
-						<i class="far fa-comments"></i>
-						<span>14</span>
-						-
-						<i class="far fa-eye"></i>
-						<span>500</span>
-					</div>
-				</div>
-
-				<div class="box post-box twitter">
-					<div class="post-header">
-						<div class="post-header-img"></div>
-						<div class="post-header-text">
-							<h1>Source title</h1>
-							<p>Subtitle</p>
-						</div>
-						<div class="post-header-date">
-							<p>Yesterday</p>
-						</div>
-					</div>
-					<div class="post-content">
-						<div class="post-content-text">
-							<!-- max 230 symbols -->
-							<span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type</span>
-							<button>...see more</button>
-						</div>
-						<div class="post-content-img"></div>
-					</div>
-					<div class="post-footer">
-						<i class="far fa-thumbs-up"></i>
-						<span>167</span>
-						-
-						<i class="far fa-comments"></i>
-						<span>14</span>
-						-
-						<i class="far fa-eye"></i>
-						<span>500</span>
-					</div>
-				</div>
-
-				<div class="box post-box">
-					<div class="post-header">
-						<div class="post-header-img"></div>
-						<div class="post-header-text">
-							<h1>source title</h1>
-							<p>subtitle</p>
-						</div>
-					</div>
-					<div class="post-content">
-						<div class="post-content-text"></div>
-						<div class="post-content-img"></div>
-					</div>
-					<div class="post-footer"></div>
-				</div>
-
-				<div class="box post-box">
-					<div class="post-header">
-						<div class="post-header-img"></div>
-						<div class="post-header-text">
-							<h1>source title</h1>
-							<p>subtitle</p>
-						</div>
-					</div>
-					<div class="post-content">
-						<div class="post-content-text"></div>
-						<div class="post-content-img"></div>
-					</div>
-					<div class="post-footer"></div>
-				</div>
-			</div><!-- end Center Bar -->
+				<!-- end Center Bar -->
 
 		</div><!-- end Center Bar + Right Bar -->
 
@@ -438,6 +177,7 @@
 
 	<!-- Custom scripts -->
 	<script src="js/scroll.min.js"></script>
+	<script src="js/main.js"></script>
 	
 </body>
 </html>

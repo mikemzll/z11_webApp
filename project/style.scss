@@ -175,12 +175,6 @@ header {
 	margin: 0 10px;
 	font-size: 28px;
 }
-/* .weather-icon .shadow {
-    position: relative;
-    top: -36px;
-    color: $border-color;
-    z-index: -10;
-} */
 #header-login-box {
 	.more {
 		margin: 0 20px;
@@ -249,7 +243,6 @@ header {
 	text-align: center;
 	padding: 2px 16px;
 	background-color: $bg-white;
-	//border: $border;
 	border-radius: $br-0;
 	box-shadow: $shadow;
 }
@@ -273,7 +266,7 @@ header {
 
 	//box-shadow: $shadow-inset;
 
-	&:hover {
+	&:hover, &:hover svg {
 		background-color: $bg-main;
 		color: $bg-white;
 	}
@@ -559,11 +552,15 @@ footer {
 	    font-family: $font-text;
    	}
 	li {
-		margin-right: 3px;
+		margin-right: 7px;
     	list-style-type: none;
     	display: inline-block;
+
+    	&:last-child {
+    		margin-right: 0px;
+    	}
    	}
-   	a.clicked {
+   	.clicked {
    		font-weight: 600;
    	}
 }
@@ -627,6 +624,7 @@ footer {
 	p {
 		margin: 0;
 		color: $sub-text-color;
+		max-width: 80%;
 	}
 }
 .post-header-date {
